@@ -3,6 +3,7 @@ package com.sparta.springauth.config;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
@@ -23,7 +24,9 @@ public class WebSecurityConfig {
                 .anyRequest().authenticated() // 그 외 모든 요청 인증처리
         );
 
+
         // 로그인 사용
+        //  http.formLogin(Customizer.withDefaults());
         http.formLogin((formLogin) ->
             formLogin
                 // 로그인 View 제공 (GET /api/user/login-page)
